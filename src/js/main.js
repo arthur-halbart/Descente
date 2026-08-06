@@ -4,18 +4,27 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-document.addEventListener("DOMContentLoaded", () => {
+const HeroAnimation = () => {
+  const hero = document.querySelector(".hero");
+  const introCard = document.querySelector(".intro__card");
+  const sloganLines = gsap.utils.toArray(".slogan__line");
+  const heroElements = gsap.utils.toArray([".hero__graphic", ".hero__logo", ".hero__footer"]);
 
-  gsap.set([".intro__card", ".intro__card-wrapper",], {
+  gsap.set(introCard, { 
     xPercent: -50, 
-    yPercent: -50
+    yPercent: -50, 
+    width: "30vw", 
+    height: "40vh", 
+    opacity: 0, 
+    borderRadius: "8px" 
   });
+  gsap.set(sloganLines, { yPercent: 110 });
 
   const introAnim = gsap.timeline({
     scrollTrigger: {
-      trigger: ".hero", 
+      trigger: hero,
       start: "top top",
-      end: "+=200%",  
+      end: "+=250%",
       pin: true,
       scrub: 1,
       anticipatePin: 1
@@ -23,27 +32,35 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   introAnim
-    .fromTo(".intro__card", { 
-        scale: 0.5, 
-        opacity: 0 
-    }, { 
-        scale: 1, 
-        opacity: 1, 
-        duration: 0.8,
-        force3D: true 
+    .to(heroElements, { 
+      yPercent: -30, 
+      opacity: 0, 
+      stagger: 0.05, 
+      duration: 0.8, 
+      ease: "power2.inOut" 
     })
-    .to(".intro__card", { 
-        width: "100vw", 
-        height: "100vh",
-        duration: 1.5, 
-        force3D: true 
-    })
+    .to(introCard, { 
+      opacity: 1, 
+      duration: 0.3, 
+      ease: "power1.inOut" 
+    }, ">")
+    .to(introCard, { 
+      width: "100vw", 
+      height: "100vh", 
+      borderRadius: "0px",
+       duration: 1.2, 
+       ease: "power2.inOut" 
+      })
+    .to(sloganLines, { 
+      yPercent: 0, 
+      duration: 0.8, 
+      stagger: 0.1, 
+      ease: "power4.out" 
+    });
+};
 
-    // .to(".intro__slogan", {
-    //     opacity: 1,
-    //     y: 0, 
-    //     duration: 1,
-    //     ease: "power2.out"
-    // });
-
+document.addEventListener("DOMContentLoaded", () => {  
+  if (document.querySelector(".hero")) {
+    HeroAnimation();
+  }
 });

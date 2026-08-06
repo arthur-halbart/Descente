@@ -1,0 +1,16 @@
+@use 'variables' as *;
+
+
+@mixin font-display($letterSpacing : normal) {
+    font-family: $font-display;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: $letterSpacing;
+}
+
+@mixin font-body($weight: 300) {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(1rem, 1.2vw, 1.25rem);
+    font-weight: $weight;
+    line-height: 1.4;
+}

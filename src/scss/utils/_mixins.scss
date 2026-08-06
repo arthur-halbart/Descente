@@ -8,6 +8,13 @@
     letter-spacing: $letterSpacing;
 }
 
+@mixin font-serif( $italic:false) {
+    font-family: "Bodoni Moda", serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
+}
+
 @mixin font-body($weight: 300) {
     font-family: 'Inter', sans-serif;
     font-size: clamp(1rem, 1.2vw, 1.25rem);

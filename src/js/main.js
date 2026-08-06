@@ -4,6 +4,9 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
+// ==========================================================================
+// 1. L'ANIMATION INTERNE DU HERO (La séquence d'introduction)
+// ==========================================================================
 const HeroAnimation = () => {
   const hero = document.querySelector(".hero");
   const introCard = document.querySelector(".intro__card");
@@ -59,8 +62,29 @@ const HeroAnimation = () => {
     });
 };
 
+
+const PageTransitions = () => {
+  const hero = document.querySelector(".hero");
+  const preface = document.querySelector(".preface");
+
+  gsap.to(hero, {
+    yPercent: 150, 
+    ease: "none", 
+    scrollTrigger: {
+      trigger: preface,
+      start: "top bottom", 
+      end: "top top",      
+      scrub: true          
+    }
+  });
+};
+
 document.addEventListener("DOMContentLoaded", () => {  
+
   if (document.querySelector(".hero")) {
     HeroAnimation();
+  }
+  if (document.querySelector(".preface")) {
+    PageTransitions();
   }
 });

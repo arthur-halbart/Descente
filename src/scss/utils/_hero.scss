@@ -16,11 +16,13 @@ body {
   position: relative;
   height: 100svh; 
   background: url("../../assets/img/Ciel_fond_hero.webp") center/cover no-repeat;
-  overflow: hidden;
+  overflow-y: hidden;
   display: flex;
   flex-direction: column;
   justify-content: flex-end; 
-  padding: clamp(1rem, 4vw, 2rem);
+  padding-bottom: 1rem;
+  box-sizing: border-box;
+  align-items: end;
 
   @media (min-width: 1440px) {
     justify-content: center; 
@@ -32,6 +34,7 @@ body {
     margin: 0 auto;
     display: flex;
     flex-direction: column;
+
   }
 
   &__graphic { 
@@ -119,6 +122,7 @@ body {
   z-index: 10;
   pointer-events: none;
   text-transform: uppercase;
+  overflow: hidden;
 
   .slogan__mask {
     display: block; 
@@ -171,6 +175,7 @@ body {
     // line-height: 1.1;
     color: $home-bg;
     margin-left: 2rem;
+    width: 100%;
 
     span {
       display: block;

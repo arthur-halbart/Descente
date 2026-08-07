@@ -66,7 +66,6 @@ const PageTransitions = () => {
 
   gsap.to(hero, {
     yPercent: 150, 
-    ease: "none", 
     scrollTrigger: {
       trigger: preface,
       start: "top bottom", 
@@ -76,7 +75,33 @@ const PageTransitions = () => {
   });
 };
 
+
+const ScrollHorizontale = () => {
+  const section = document.querySelector(".parcours");
+  const wrapper = document.querySelector(".parcours__wrapper");
+
+  let largeur = gsap.matchMedia();
+
+  largeur.add("(min-width: 768px)", () => {
+    const scrollDistance = wrapper.scrollWidth - section.offsetWidth;
+
+    gsap.to(wrapper, {
+      x: -scrollDistance,
+      ease: "none",
+      scrollTrigger: {
+        trigger: section,
+        start: "top top",
+        end: () => `+=${scrollDistance}`,
+        pin: true,
+        scrub: true,
+        invalidateOnRefresh: true
+      }
+    });
+  });
+};
+
 HeroAnimation();
 PageTransitions();
+ScrollHorizontale();
 
 //////////////////////////////////

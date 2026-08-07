@@ -8,7 +8,7 @@
     letter-spacing: $letterSpacing;
 }
 
-@mixin font-serif( $italic:false) {
+@mixin font-serif($italic: true) {
     font-family: "Bodoni Moda", serif;
     font-optical-sizing: auto;
     font-weight: weight;

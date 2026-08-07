@@ -1,0 +1,206 @@
+@use '../utils/mixins' as *;
+@use 'variables' as *;
+
+.parcours {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background-color: #111; 
+
+  &__wrapper {
+    display: block;
+    width: 100%;
+
+    @media (min-width: 1024px) {
+      display: flex;
+      width: max-content; 
+      height: 100svh;
+      will-change: transform; 
+    }
+  }
+
+  &__card {
+    &--orgueil {
+      --bg-color: #252525; 
+      --txt-main: #FFFFFF;
+      --txt-cl: #D7AB56; 
+    }
+
+    &--paresse {
+      --bg-color: #D5CFC4;
+      --txt-main: #8E8679;
+      --txt-cl: #479528; 
+    }
+    
+    &--luxure {
+      --bg-color: #2A1A21;
+      --txt-main: #F7F0F3;
+      --txt-cl: #B46E8B;
+    }
+
+    &--envie {
+      --bg-color: #7BA4DB;
+      --txt-main: #F0F4FA;
+      --txt-cl: #1C2636;
+    }
+
+    &--colere {
+      --bg-color: #252525;
+      --txt-main: #F7F0F3;
+      --txt-cl: #D60E10;
+    }
+
+    &--avarice {
+      --bg-color: #B4ADC2;
+      --txt-main: #FDFFFA;
+      --txt-cl: #493B63;
+    }
+
+    &--gourmandise {
+      --bg-color: #876B5A;
+      --txt-main: #F8F4F0;
+      --txt-cl: #DABD8F;
+    }
+  
+
+    background-color: var(--bg-color);
+    color: var(--txt-main);
+
+    position: relative;
+    height: 100svh;
+    width: 100%; 
+    box-sizing: border-box; 
+    display: flex;
+    flex-direction: column;
+    padding: clamp(1.5rem, 4vw, 3rem);
+    padding-bottom: calc(2rem + env(safe-area-inset-bottom));
+
+    @media (min-width: 1024px) {
+      width: 100vw;
+      padding: clamp(3rem, 5vw, 4rem);
+    }
+  }
+
+  &__card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2); 
+    padding-bottom: 1rem;
+    margin-bottom: 3rem;
+  }
+
+  &__meta {
+    @include font-body();
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  &__card-content {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column-reverse; 
+    justify-content: space-between; 
+    min-height: 0; 
+  }
+
+  &__card-info {
+    display: flex;
+    flex-direction: column-reverse; 
+    align-items: flex-start;
+
+    @media (min-width: 1024px) {
+      flex-direction: row; 
+      justify-content: space-between;
+    }
+  }
+
+  &__monument {
+    @include font-serif($italic: true);
+    font-size: clamp(3rem, 6vw, 5rem);
+    line-height: 1.1;
+    font-weight: 600;
+    width: 70%
+  }
+
+  &__architect {
+    @include font-body();
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-top: 1.5rem;
+  }
+
+  &__number {
+    @include font-serif();
+    font-size: 23.75rem;
+    line-height: 0.8;
+    color: rgba(255, 255, 255, 0.8); 
+    align-self: flex-end; 
+    text-align: right;
+    font-style: italic;
+    opacity: 0.6;
+
+    @media (min-width: 1024px) {
+      align-self: auto; 
+    }
+  }
+
+
+  &__card-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+
+    @media (min-width: 1024px) {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+  }
+
+  &__sin {
+    @include font-display();
+    color: var(--txt-cl);
+    font-size: clamp(7.375rem, 5.51rem + 9.31vw, 16.6875rem);
+    line-height: 0.8;
+    margin-left: -5px; 
+    text-transform: uppercase;
+  }
+
+  &__vertu-block {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    margin-top: 1.5rem;
+
+    @media (min-width: 1024px) {
+      align-items: flex-end;
+      text-align: right;
+      margin-top: 0;
+    }
+  }
+
+  &__vertu {
+    @include font-serif($italic: true);
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 400;
+    margin: 0.5rem 0 1.5rem 0;
+  }
+
+  &__cta {
+    display: inline-block;
+    @include font-body();
+    color: var(--txt-main);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    transition: all 0.3s ease; 
+  }
+}

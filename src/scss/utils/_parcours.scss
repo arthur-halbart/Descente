@@ -5,7 +5,6 @@
   position: relative;
   width: 100%;
   overflow: hidden;
-  background-color: #111; 
 
   &__wrapper {
     display: block;
@@ -23,7 +22,7 @@
     &--orgueil {
       --bg-color: #252525; 
       --txt-main: #FFFFFF;
-      --txt-cl: #D7AB56; 
+      --txt-cl: #D7AB56 ; 
     }
 
     &--paresse {
@@ -73,7 +72,6 @@
     display: flex;
     flex-direction: column;
     padding: clamp(1.5rem, 4vw, 3rem);
-    padding-bottom: calc(2rem + env(safe-area-inset-bottom));
 
     @media (min-width: 1024px) {
       width: 100vw;
@@ -124,7 +122,7 @@
     width: 70%
   }
 
-  &__architect {
+  &__subtext {
     @include font-body();
     font-size: 0.85rem;
     text-transform: uppercase;
@@ -194,7 +192,6 @@
   }
 
   &__cta {
-    display: inline-block;
     @include font-body();
     color: var(--txt-main);
     font-size: 0.85rem;

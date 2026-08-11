@@ -4,11 +4,17 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
+//////////////ANIMATION HERO
+
 const HeroAnimation = () => {
   const hero = document.querySelector(".hero");
   const introCard = document.querySelector(".intro__card");
   const sloganLines = gsap.utils.toArray(".slogan__line");
   const heroElements = gsap.utils.toArray([".hero__graphic", ".hero__logo", ".hero__footer"]);
+
+  if (!hero || !introCard || sloganLines.length === 0 || heroElements.length === 0) {
+    return;
+  }
 
   gsap.set(introCard, { 
     xPercent: -50, 
@@ -27,7 +33,6 @@ const HeroAnimation = () => {
       end: "+=250%",
       pin: true,
       scrub: 1,
-      anticipatePin: 1
     }
   });
 
@@ -60,9 +65,13 @@ const HeroAnimation = () => {
 };
 
 
-const PageTransitions = () => {
+const IntroTransitions = () => {
   const hero = document.querySelector(".hero");
   const preface = document.querySelector(".preface");
+
+  if (!hero || !preface) {
+    return;
+  }
 
   gsap.to(hero, {
     yPercent: 150, 
@@ -75,15 +84,23 @@ const PageTransitions = () => {
   });
 };
 
-
+////////////////////SCROLL HORIZONTALE
 const ScrollHorizontale = () => {
-  const section = document.querySelector(".parcours");
-  const wrapper = document.querySelector(".parcours__wrapper");
+const section = document.querySelector(".parcours");
+const wrapper = document.querySelector(".parcours__wrapper");
 
-  let largeur = gsap.matchMedia();
+if (!section || !wrapper) {
+  return;
+}
 
-  largeur.add("(min-width: 768px)", () => {
-    const scrollDistance = wrapper.scrollWidth - section.offsetWidth;
+let responsive = gsap.matchMedia();
+
+responsive.add("(min-width: 768px)", () => {
+const totalContentWidth = wrapper.scrollWidth;
+const visibleAreaWidth = section.offsetWidth;
+const scrollDistance = totalContentWidth - visibleAreaWidth;
+
+if (scrollDistance <= 0) return;
 
     gsap.to(wrapper, {
       x: -scrollDistance,
@@ -100,8 +117,57 @@ const ScrollHorizontale = () => {
   });
 };
 
+
+///////////////////////ANIMATION PAGE PARESSE | GSAP -> codePen : "https://codepen.io/GreenSock/pen/rNOebyo"
+
+const ParesseCrossfade = () => {
+  const container = document.querySelector(".page--paresse");
+  if (!container) return;
+
+  const sections = gsap.utils.toArray(".page--paresse .slide");
+  if (sections.length === 0) return;
+
+  let currentSection = sections[0];
+
+  gsap.defaults({ overwrite: "auto", duration: 0.6 });
+
+  gsap.set("body", { height: sections.length * window.innerHeight });
+
+  sections.forEach((section, i) => {
+    ScrollTrigger.create({
+      start: () => (i - 0.5) * window.innerHeight,
+      end: () => (i + 0.5) * window.innerHeight,
+      onToggle: self => self.isActive && setSection(section)
+    });
+  });
+
+  function setSection(newSection) {
+    if (newSection !== currentSection) {
+      const oldContent = currentSection.querySelector(".slide__content");
+      const newContent = newSection.querySelector(".slide__content");
+
+      gsap.to(oldContent, { y: -30, autoAlpha: 0, duration: 0.5, ease: "power2.in" });
+      gsap.to(currentSection, { autoAlpha: 0, duration: 0.4 });
+
+      gsap.set(newSection, { autoAlpha: 1 });
+      gsap.fromTo(newContent,
+        { y: 30, autoAlpha: 0 },
+        { y: 0, autoAlpha: 1, duration: 0.7, delay: 0.2, ease: "power3.out" }
+      );
+
+      currentSection = newSection;
+    }
+  }
+
+  gsap.set(sections.slice(1), { autoAlpha: 0 });
+
+  document.querySelectorAll(".page--paresse .slide").length
+};
+
+
 HeroAnimation();
-PageTransitions();
+IntroTransitions();
 ScrollHorizontale();
+ParesseCrossfade();
 
 //////////////////////////////////

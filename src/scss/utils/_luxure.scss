@@ -1,0 +1,311 @@
+@use '../utils/mixins' as *;
+@use 'variables' as *;
+ 
+.page--luxure {
+  position: relative;
+  background-color: $luxure-bg;
+  color: $luxure-txt;
+  overflow: hidden;
+}
+
+.luxure__svg {
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+  height: auto;
+ 
+  &--hero {
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &--bio {
+    top: 5%;
+    right: -12%;
+    width: clamp(560px, 70vw, 1231px);
+  }
+ 
+  &--right {
+    top: 8%;
+    right: -6%;
+    width: clamp(300px, 38vw, 558px);
+  }
+ 
+  &--left {
+    bottom: 5%;
+    left: -8%;
+    width: clamp(520px, 65vw, 1055px);
+  }
+}
+
+.parcours__card--luxure {
+  position: relative;
+  overflow: hidden;
+}
+ 
+.parcours__card--luxure .parcours__card-header,
+.parcours__card--luxure .parcours__card-content {
+  position: relative;
+  z-index: 2;
+}
+ 
+.luxure__content-02 {
+  position: relative;
+  overflow: hidden;
+}
+
+.luxure__block {
+  position: relative;
+  z-index: 2; 
+  width: 95%;
+  margin: 0 auto;
+  padding: 0 1rem;
+ 
+  &--intro {
+    margin: clamp(3rem, 8vw, 6rem) auto;
+ 
+    .luxure__headline {
+      @include font-serif();
+      font-style: italic;
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      line-height: 1.5;
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto;
+      font-weight: 400;
+ 
+      span {
+        @include font-display();
+      }
+    }
+  }
+ 
+  &--bio {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(2rem, 5vw, 3rem);
+    padding: clamp(1.5rem, 4vw, 2.5rem);
+    margin: 0 auto;
+ 
+    @media (min-width: 1024px) {
+      flex-direction: row;
+      align-items: center;
+      gap: clamp(3rem, 6vw, 5rem);
+    }
+ 
+    .luxure__label {
+      @include font-body();
+      font-size: clamp(0.7rem, 0.9vw, 0.8rem);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      opacity: 0.8;
+      display: block;
+      margin-bottom: 0.75rem;
+    }
+  }
+ 
+  &--traits {
+    margin: clamp(3rem, 6vw, 5rem) auto;
+    max-width: 500px;
+ 
+    .luxure__traits-title {
+      @include font-serif();
+      font-size: clamp(1.4rem, 3vw, 1.8rem);
+      font-weight: 700;
+      margin: 0 0 2rem 0;
+ 
+      span {
+        color: $luxure-cl;
+        font-style: italic;
+        font-weight: 400;
+      }
+    }
+ 
+    .luxure__traits-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      margin: 0;
+      padding: 0;
+    }
+ 
+    .luxure__traits-item {
+      @include font-serif();
+      font-style: italic;
+      font-size: clamp(1rem, 2vw, 1.3rem);
+      padding: 0.9rem 0;
+      border-bottom: 1px solid rgba($luxure-txt, 0.15);
+      opacity: 0.85;
+ 
+      &:first-child {
+        border-top: 1px solid rgba($luxure-txt, 0.15);
+      }
+    }
+  }
+ 
+  &--sensualite {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    max-width: none;
+    min-height: clamp(500px, 60vh, 750px);
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    padding: clamp(3rem, 8vw, 6rem) clamp(1.5rem, 4vw, 2.5rem);
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+ 
+  &--conclusion {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(4rem, 8vw, 7rem) 1rem;
+    text-align: center;
+ 
+    .luxure__conclusion-text {
+      @include font-serif();
+      font-style: italic;
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      line-height: 1.5;
+      max-width: 600px;
+      margin: 0;
+      font-weight: 400;
+ 
+      .txt--accent {
+        color: $luxure-cl;
+        font-weight: 700;
+        font-style: normal;
+      }
+    }
+  }
+}
+
+.luxure__media {
+  position: relative;
+  z-index: 0;
+  width: 100%;
+  aspect-ratio: 1 / 0.92;
+  border-radius: 50% 40% 30% 25%;
+  background-color: #d9bbd9;
+ 
+  @media (min-width: 1024px) {
+    width: 55%;
+  }
+}
+ 
+.luxure__bio-text {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+ 
+  .luxure__text {
+    width: 60%;
+  }
+ 
+  @media (min-width: 1024px) {
+    width: 45%;
+    justify-content: center;
+    margin-top: 40rem;
+ 
+    .luxure__text {
+      width: 60%;
+    }
+  }
+}
+ 
+.luxure__bio-title {
+  @include font-serif();
+  font-style: italic;
+  font-size: clamp(2rem, 6vw, 2.6rem);
+  color: $luxure-cl;
+  margin: 0 0 1.5rem 0;
+  font-weight: 400;
+  line-height: 1;
+}
+ 
+.luxure__text {
+  @include font-body();
+  font-size: clamp(0.9rem, 1vw, 0.95rem);
+  line-height: 1.6;
+  color: $luxure-txt;
+  margin: 0 0 1.25rem 0;
+ 
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.luxure__circle {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: clamp(320px, 32vw, 620px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background-color: #6b5d63;
+  z-index: 0;
+ 
+  &--left {
+    left: clamp(-260px, -16vw, -120px);
+  }
+ 
+  &--right {
+    right: clamp(-260px, -16vw, -120px);
+  }
+}
+ 
+.luxure__sensualite-inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 620px;
+  margin: 0 auto;
+  text-align: center;
+ 
+  @media (min-width: 1024px) {
+    text-align: left;
+  }
+}
+ 
+.luxure__section-title {
+  @include font-serif();
+  font-size: clamp(2.2rem, 7vw, 3.5rem);
+  font-weight: 400;
+  color: $luxure-txt;
+  margin: 0 0 1.5rem 0;
+  border-bottom: 1px solid rgba($luxure-cl, 0.5);
+  display: inline-block;
+ 
+  @media (min-width: 1024px) {
+    display: block;
+  }
+}
+ 
+.luxure__sensualite-text {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+ 
+.luxure__text--upper {
+  font-weight: 700;
+  font-size: clamp(0.75rem, 0.9vw, 0.85rem);
+  line-height: 1.4;
+ 
+  &:first-child {
+    color: $luxure-txt;
+  }
+ 
+  &:not(:first-child) {
+    font-weight: 600;
+    opacity: 0.75;
+  }
+}

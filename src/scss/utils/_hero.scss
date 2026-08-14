@@ -20,13 +20,13 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: flex-end; 
-  padding-bottom: 1rem;
+  margin-bottom: 1rem;
   box-sizing: border-box;
   align-items: end;
+  padding: clamp(2rem, 5vw, 4rem);
 
   @media (min-width: 1440px) {
-    justify-content: center; 
-    padding: clamp(2rem, 5vw, 4rem);
+
   };
 
   &__content {
@@ -50,7 +50,12 @@ body {
   }
 
   &__logo {
-    width: 100%;
+    width: 90%;
+
+    @media (min-width: 768px) {
+      width: 70%;
+
+    };
 
     svg {
       width: 100%;
@@ -80,10 +85,17 @@ body {
 
   &__cont {
     width: 100%; 
+    @include font-body();
 
     @media (min-width: 768px) {
       width: 32%;
     };
+
+    .big--txt{
+      font-weight: 600;
+    }
+
+
 
     &--left {
       text-align: left;

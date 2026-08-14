@@ -4,6 +4,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
+////////////////////////////Animation principal inspiration -> https://gsap.com/ 
+
 //////////////ANIMATION HERO
 
 const HeroAnimation = () => {
@@ -164,10 +166,39 @@ const ParesseCrossfade = () => {
   document.querySelectorAll(".page--paresse .slide").length
 };
 
+//////////////////////////////////////////////////////////////////////////Envie qnimation page
 
+  const liberties = gsap.utils.toArray(".envie__liberty");
+ 
+  liberties.forEach((el) => {
+    const toggle = () => {
+      const wasOpen = el.classList.contains("is-open");
+ 
+      liberties.forEach((other) => {
+        other.classList.remove("is-open");
+        other.setAttribute("aria-expanded", "false");
+      });
+ 
+      if (!wasOpen) {
+        el.classList.add("is-open");
+        el.setAttribute("aria-expanded", "true");
+      }
+    };
+ 
+    el.addEventListener("click", toggle);
+    el.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        toggle();
+      }
+    });
+  });
+
+ 
 HeroAnimation();
 IntroTransitions();
 ScrollHorizontale();
 ParesseCrossfade();
+
 
 //////////////////////////////////

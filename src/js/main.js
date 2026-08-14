@@ -97,7 +97,7 @@ if (!section || !wrapper) {
 
 let responsive = gsap.matchMedia();
 
-responsive.add("(min-width: 768px)", () => {
+responsive.add("(min-width: 1024px)", () => {
 const totalContentWidth = wrapper.scrollWidth;
 const visibleAreaWidth = section.offsetWidth;
 const scrollDistance = totalContentWidth - visibleAreaWidth;
@@ -166,7 +166,7 @@ const ParesseCrossfade = () => {
   document.querySelectorAll(".page--paresse .slide").length
 };
 
-//////////////////////////////////////////////////////////////////////////Envie qnimation page
+//////////////////////////////////////////////////////////////////////////Envie animation page
 
   const liberties = gsap.utils.toArray(".envie__liberty");
  

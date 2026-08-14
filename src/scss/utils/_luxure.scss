@@ -154,11 +154,9 @@
     justify-content: center;
     width: 100vw;
     max-width: none;
-    min-height: clamp(500px, 60vh, 750px);
     margin-left: calc(-50vw + 50%);
     margin-right: calc(-50vw + 50%);
     padding: clamp(3rem, 8vw, 6rem) clamp(1.5rem, 4vw, 2.5rem);
-    overflow: hidden;
     box-sizing: border-box;
   }
  
@@ -193,7 +191,8 @@
   width: 100%;
   aspect-ratio: 1 / 0.92;
   border-radius: 50% 40% 30% 25%;
-  background-color: #d9bbd9;
+  background: url("../../assets/img/Luxure/Luxure--01.webp") center / cover no-repeat;
+  opacity: 0.6;
  
   @media (min-width: 1024px) {
     width: 55%;
@@ -255,10 +254,12 @@
  
   &--left {
     left: clamp(-260px, -16vw, -120px);
+    background: url("../../assets/img/Luxure/Luxure--03.webp") center;
   }
  
   &--right {
     right: clamp(-260px, -16vw, -120px);
+    background: url("../../assets/img/Luxure/Luxure--02.webp") center;
   }
 }
  

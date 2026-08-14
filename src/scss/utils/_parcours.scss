@@ -5,6 +5,7 @@
   position: relative;
   width: 100%;
   overflow: hidden;
+  
 
   &__wrapper {
     display: block;
@@ -118,7 +119,7 @@
     @include font-serif($italic: true);
     font-size: clamp(3rem, 6vw, 5rem);
     line-height: 1.1;
-    font-weight: 600;
+    font-weight: 700;
     width: 70%
   }
 
@@ -132,17 +133,13 @@
 
   &__number {
     @include font-serif();
-    font-size: 23.75rem;
+    font-size: clamp(13.1875rem, 9.7959rem + 15.5046vw, 23.75rem);
     line-height: 0.8;
-    color: rgba(255, 255, 255, 0.8); 
+    color: var(--txt-cl); 
     align-self: flex-end; 
     text-align: right;
     font-style: italic;
-    opacity: 0.6;
-
-    @media (min-width: 1024px) {
-      align-self: auto; 
-    }
+    opacity: 0.5;
   }
 
 
@@ -162,9 +159,17 @@
   }
 
   &__sin {
+    &--titleGourmandise{
+      font-size: clamp(4.5625rem, 1.793rem + 12.6606vw, 13.1875rem);
+      line-height: 0.8;
+      margin-left: -5px; 
+      text-transform: uppercase;
+      color: var(--txt-cl);
+      @include font-display();
+    }
     @include font-display();
     color: var(--txt-cl);
-    font-size: clamp(7.375rem, 5.51rem + 9.31vw, 16.6875rem);
+    font-size: clamp(5.125rem, 1.4123rem + 16.9725vw, 16.6875rem);
     line-height: 0.8;
     margin-left: -5px; 
     text-transform: uppercase;

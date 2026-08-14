@@ -181,12 +181,16 @@ body {
 
   &__slogan {
     font-family: $font-serif;
-    font-size: clamp(3.625rem, 1.27rem + 8.86vw, 9.25rem);
+    font-size: clamp(2.25rem, 0.0023rem + 10.2752vw, 9.25rem);
     text-transform: uppercase;
     text-align: left;
     color: $home-bg;
-    margin-left: 2rem;
+    margin-left: 1rem;
     width: 100%;
+
+    @media (min-width: 768px) {
+      margin-left: 2rem;
+    };
 
     span {
       display: block;

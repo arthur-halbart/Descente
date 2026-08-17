@@ -17,7 +17,7 @@
 
 @mixin font-body($weight: 300) {
     font-family: 'Inter', sans-serif;
-    font-size: clamp(1rem, 1.2vw, 1.25rem);
+    font-size: clamp(1rem, 0.8443rem + 0.6339vw, 1.25rem);
     font-weight: $weight;
     line-height: 1.4;
 }

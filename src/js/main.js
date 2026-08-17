@@ -88,8 +88,8 @@ const IntroTransitions = () => {
 
 ////////////////////SCROLL HORIZONTALE
 const ScrollHorizontale = () => {
-const section = document.querySelector(".parcours");
-const wrapper = document.querySelector(".parcours__wrapper");
+const section = document.querySelector(".parcours, .avarice");
+ const wrapper = document.querySelector(".parcours__wrapper, .avarice__wrapper");
 
 if (!section || !wrapper) {
   return;

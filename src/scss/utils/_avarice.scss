@@ -1,0 +1,223 @@
+@use '../utils/mixins' as *;
+@use 'variables' as *;
+
+.page--avarice {
+  position: relative;
+  background-color: $avarice-bg;
+  color: $avarice-cl;
+  overflow-x: hidden;
+}
+
+.avarice {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.avarice__wrapper {
+  display: block;
+  width: 100%;
+
+  @media (min-width: 1024px) {
+    display: flex;
+    width: max-content;
+    height: 100svh;
+    will-change: transform;
+  }
+}
+
+.avarice__chapitre {
+  position: relative;
+  width: 100%;
+  padding: clamp(1.5rem, 5vw, 3rem);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: 1024px) {
+    height: 100svh;
+  }
+
+
+  &--text {
+    @include font-body();
+    font-weight: 400;
+    background-color: $avarice-cl2;
+    color: $avarice-txt;
+    padding-top: 8.75rem;
+    padding-bottom: 8.75rem;
+
+    &--strong{
+      font-weight: 600;
+    }
+
+    h2{
+      @include font-display();
+    }
+
+    @media (min-width: 1024px) {
+      width: 46vw;
+      justify-content: space-between;
+    }
+
+    .avarice__chapitre-header {
+      display: flex;
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-bottom: 10rem;
+
+      @media (min-width: 1024px) {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+
+      span{
+        @include font-body();
+
+        strong{
+          color: $avarice-cl;
+        }
+      }
+
+      h2{
+        font-size: clamp(3.1875rem, 2.3311rem + 3.4865vw, 4.5625rem);
+      }
+    }
+    
+  }
+
+  &--media {
+    padding: 0;
+
+    @media (min-width: 1024px) {
+      width: 65vw;
+    }
+  }
+
+
+  &--firstStone {
+    background-color: $avarice-cl2;
+    color: $avarice-bg;
+    display: flex;
+    justify-content: center;
+    @include font-display();
+    font-size: clamp(3.625rem, -1.3965rem + 20.4437vw, 11.6875rem);
+    line-height: 1;
+    padding-top: 5.6875rem;
+    padding-bottom: 6.5625rem;
+
+    h2{
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+    span{
+      @include font-body();
+      color: $avarice-cl;
+    
+    }
+    @media (min-width: 1024px) {
+      width: 82vw;
+      justify-content: center;
+      align-items: flex-start;
+    }
+  }
+
+  &--stat {
+    margin-top: 7.8125rem;
+    margin-bottom: 13.125rem;
+    background-color: $avarice-bg;
+    @include font-serif();
+    font-style: italic;
+    font-size: clamp(10.4375rem, 7.7127rem + 11.0935vw, 14.8125rem);
+    line-height: 0.8;
+    color: rgba($avarice-cl, 0.55);
+
+    p{
+      @include font-body();
+      font-size: 1.525rem;
+      color: $avarice-txt;
+      font-style: normal;
+      margin-top: 4rem;
+    }
+    @media (min-width: 1024px) {
+      width: 80vw;
+      flex-direction: row-reverse;
+      align-items: center;
+      justify-content: space-around;
+      margin: 0;
+
+      span{
+        padding-bottom: 20rem;
+      }
+
+      p{
+        width: 40%;
+        padding-top: 9rem;
+      }
+      
+    }
+  }
+
+  &--date {
+    background-color: $avarice-bg;
+    justify-content: space-between;
+    gap: clamp(3rem, 12vw, 6rem);
+    padding-top: 8.3125rem;
+    padding-bottom: 15.3125rem;
+
+  
+    span{
+      @include font-serif();
+      font-size: clamp(3.1875rem, -4.0528rem + 29.477vw, 14.8125rem);
+      line-height: 1;
+      color: rgba($avarice-cl, 0.5);
+      letter-spacing: 0.03em;
+    }
+
+    p{
+      @include font-body();
+      color: $avarice-txt;
+
+      strong {
+        color: $avarice-cl;
+      }
+
+    }
+
+    h3{
+      @include font-body();
+      font-size: clamp(1.75rem, 2.0614rem + -1.2678vw, 1.25rem);
+      font-weight: 700;
+    }
+
+    p{
+      @include font-body();
+      width: 50%;
+    }
+
+    @media (min-width: 1024px) {
+      width: 95vw;
+      padding-left: 3rem;
+    }
+  }
+}
+
+
+.avarice__media {
+  width: 100%;
+  background-color: $avarice-cl;
+
+  img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.9;
+  }
+
+  @media (min-width: 1024px) {
+    height: 100%;
+    aspect-ratio: auto;
+  }
+}
+

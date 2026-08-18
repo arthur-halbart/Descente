@@ -119,7 +119,6 @@ if (scrollDistance <= 0) return;
   });
 };
 
-
 ///////////////////////ANIMATION PAGE PARESSE | GSAP -> codePen : "https://codepen.io/GreenSock/pen/rNOebyo"
 
 const ParesseCrossfade = () => {
@@ -194,11 +193,57 @@ const ParesseCrossfade = () => {
     });
   });
 
+  const ColereResolutionReveal = () => {
+    const climax = document.querySelector(".colere__block--climax");
+    const panel = document.querySelector(".colere__block--resolution");
+  
+    if (!climax || !panel) {
+      return;
+    }
+  
+    gsap.set(panel, {
+      xPercent: -50,
+      yPercent: -50,
+      width: "30vw",
+      height: "40vh",
+      opacity: 0,
+      borderRadius: "8px",
+    });
+  
+    const revealAnim = gsap.timeline({
+      scrollTrigger: {
+        trigger: climax,
+        start: "top top",
+        end: "+=250%",
+        pin: true,
+        scrub: 1,
+      },
+    });
+  
+    revealAnim
+      .to(panel, {
+        opacity: 1,
+        duration: 0.3,
+        ease: "power1.inOut",
+      })
+      .to(panel, {
+        width: "100vw",
+        height: "100vh",
+        borderRadius: "0px",
+        duration: 1.2,
+        ease: "power2.inOut",
+      });
+  };
+  
+  
+  
+
  
 HeroAnimation();
 IntroTransitions();
 ScrollHorizontale();
 ParesseCrossfade();
+ColereResolutionReveal();
 
 
 //////////////////////////////////

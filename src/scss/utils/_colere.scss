@@ -160,10 +160,6 @@
     min-height: 100svh;
     margin-top: 16.625rem;
     margin-bottom: 10.5rem;
-    // pas de overflow: hidden ici : .colere__block--resolution grandit
-    // jusqu'à width:100vw, plus large que ce bloc-ci (95% de la page) —
-    // un overflow:hidden couperait le carré pile sur ses bords
-
 
 .colere__climax-title {
   @include font-display();
@@ -185,11 +181,6 @@
   display: block;
 }
   }
-
-  // ---- RÉSOLUTION : carré qui grandit jusqu'à plein écran (GSAP) ----
-  // Le SCSS ne définit que l'état "petit", au repos : c'est
-  // ColereResolutionReveal() dans main.js qui l'anime jusqu'à 100vw/100vh,
-  // exactement comme .intro__card sur la home (voir _hero.scss)
   &--resolution {
     position: absolute;
     top: 50%;
@@ -197,7 +188,7 @@
     width: 30vw;
     height: 40vh;
     max-width: none;
-    background-color: #fff; // blanc pur, demandé explicitement — $colere-txt est un blanc cassé
+    background-color: #fff; 
     color: $colere-cl;
     border-radius: 8px;
     overflow: hidden;

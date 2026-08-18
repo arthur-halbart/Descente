@@ -23,8 +23,6 @@
     h2{
       font-size: clamp(2.5625rem, 0.7795rem + 7.2588vw, 7.3125rem);
     }
-
-  
     .txt--display{
       @include font-display();
     }
@@ -32,9 +30,6 @@
     .txt--color{
       color : $orgueil-cl;
     }
-
-
-
   }
 
 

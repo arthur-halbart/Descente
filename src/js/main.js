@@ -193,6 +193,8 @@ const ParesseCrossfade = () => {
     });
   });
 
+  //////////////////////Animation Colere Page 
+
   const ColereResolutionReveal = () => {
     const climax = document.querySelector(".colere__block--climax");
     const panel = document.querySelector(".colere__block--resolution");
@@ -234,6 +236,40 @@ const ParesseCrossfade = () => {
         ease: "power2.inOut",
       });
   };
+
+
+
+/////////////////////////////////////////////////Gallery Gourmandise 
+
+const GourmandiseGallery = () => {
+  const galleries = gsap.utils.toArray(".gourmandise__gallery");
+  if (galleries.length === 0) return;
+
+  galleries.forEach((gallery, index) => {
+    const wrapper = gallery.querySelector(".gourmandise__gallery-wrapper");
+    if (!wrapper) return;
+
+    const scrollDistance = wrapper.scrollWidth - gallery.offsetWidth;
+    if (scrollDistance <= 0) return;
+
+    const [xStart, xEnd] = (index % 2)
+      ? ["0%", -scrollDistance]
+      : [-scrollDistance, 0];
+
+    gsap.fromTo(wrapper,
+      { x: xStart },
+      {
+        x: xEnd,
+        ease: "none",
+        scrollTrigger: {
+          trigger: gallery,
+          scrub: 1,
+          invalidateOnRefresh: true
+        }
+      }
+    );
+  });
+};
   
   
   
@@ -244,6 +280,6 @@ IntroTransitions();
 ScrollHorizontale();
 ParesseCrossfade();
 ColereResolutionReveal();
-
+GourmandiseGallery();
 
 //////////////////////////////////

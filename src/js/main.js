@@ -271,10 +271,22 @@ const GourmandiseGallery = () => {
   });
 };
   
-  
-  
-
+const SiteHeader = () => {
+  const btn = document.querySelector(".nav-toggle");
+  const overlay = document.querySelector(".nav-overlay");
  
+  if (!btn || !overlay) return;
+ 
+  btn.addEventListener("click", () => {
+    const isOpen = btn.classList.toggle("open");
+    overlay.classList.toggle("open");
+    btn.setAttribute("aria-expanded", isOpen);
+  });
+};
+ 
+SiteHeader();
+
+
 HeroAnimation();
 IntroTransitions();
 ScrollHorizontale();

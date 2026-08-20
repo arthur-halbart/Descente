@@ -11,7 +11,7 @@
 </head>
 <body class="page">
 
-  <div class="transition-overlay" aria-hidden="true">
+    <div class="transition-overlay" aria-hidden="true">
     <span class="transition-overlay__column"></span>
     <span class="transition-overlay__column"></span>
     <span class="transition-overlay__column"></span>
@@ -20,6 +20,34 @@
     <span class="transition-overlay__column"></span>
     <span class="transition-overlay__column"></span>
   </div>
+
+<header class="site-header">
+  <span class="site-header__meta">BXL-2026</span>
+
+  <button type="button" class="nav-toggle" aria-expanded="false" aria-label="Ouvrir le menu">
+    <span></span>
+    <span></span>
+  </button>
+</header>
+
+<nav class="nav-overlay">
+  <ul class="nav-main">
+    <li><a href="index.html">Acceuil</a></li>
+    <li><a href="index.html#preface">Concept</a></li>
+    <li><a href="index.html#parcours">Le Parcours</a></li>
+
+  </ul>
+
+  <ul class="nav-etapes">
+    <li><a href="orgueil.html"><span>I</span> Orgueil</a></li>
+    <li><a href="paresse.html"><span>II</span> Paresse</a></li>
+    <li><a href="luxure.html"><span>III</span> Luxure</a></li>
+    <li><a href="envie.html"><span>IV</span> Envie</a></li>
+    <li><a href="colere.html"><span>V</span> Colère</a></li>
+    <li><a href="avarice.html"><span>VI</span> Avarice</a></li>
+    <li><a href="gourmandise.html"><span>VII</span> Gourmandise</a></li>
+  </ul>
+</nav>
 
   <main>
     <section class="hero">
@@ -84,7 +112,7 @@
     </div>
   </section>  
 
-  <section class="preface">
+  <section id="preface" class="preface">
       <div class="preface__container">
         
         <header class="preface__header">
@@ -119,7 +147,7 @@
       </div>
     </section>
 
-    <section class="parcours">
+    <section id="parcours" class="parcours">
       <div class="parcours__wrapper">
         
         <article class="parcours__card parcours__card--orgueil">

@@ -31,7 +31,7 @@
       @include font-serif();
       font-size: clamp(2rem, 1.5308rem + 1.9102vw, 3.25rem);
       line-height: 1.4;
-     width: clamp(21.9375rem, 7.3689rem + 59.3123vw, 60.75rem);
+      width: clamp(21.9375rem, 7.3689rem + 59.3123vw, 60.75rem);
       margin: 0;
       font-weight: 400;
 
@@ -78,16 +78,21 @@
       .slide__title {
         @include font-serif();
         font-style: italic;
-        font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+        font-size: clamp(2rem, 1.2215rem + 3.1696vw, 3.25rem);
         margin: 0;
         font-weight: 400;
       }
 
       .slide__desc {
         @include font-body();
-        line-height: 1.7;
+        line-height: 1.4;
         opacity: 0.75;
         margin: 0;
+
+        @media (min-width: 1024px) {
+          width: 55%;
+        }
+        
       }
     }
   }

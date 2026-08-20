@@ -100,6 +100,7 @@
       align-items: center;
       gap: 4.8125rem;
       padding: 3.0625rem;
+
     }
  
     .luxure__label {
@@ -115,12 +116,21 @@
   }
  
   &--traits {
-    margin: clamp(3rem, 6vw, 5rem) auto;
-    max-width: 500px;
+    margin:  auto;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
+    @media (min-width: 1024px) {
+      width: 60%;
+    }
  
     .luxure__traits-title {
       @include font-serif();
-      font-size: clamp(1.4rem, 3vw, 1.8rem);
+      font-size: clamp(1.75rem, 0.699rem + 4.2789vw, 3.4375rem);
       font-weight: 700;
       margin: 0 0 2rem 0;
  
@@ -142,7 +152,7 @@
     .luxure__traits-item {
       @include font-serif();
       font-style: italic;
-      font-size: clamp(1rem, 2vw, 1.3rem);
+      font-size: clamp(1.75rem, 0.699rem + 4.2789vw, 3.4375rem);
       padding: 0.9rem 0;
       border-bottom: 1px solid rgba($luxure-txt, 0.15);
       opacity: 0.85;
@@ -160,10 +170,55 @@
     justify-content: center;
     width: 100vw;
     max-width: none;
-    margin-left: calc(-50vw + 50%);
-    margin-right: calc(-50vw + 50%);
-    padding: clamp(3rem, 8vw, 6rem) clamp(1.5rem, 4vw, 2.5rem);
     box-sizing: border-box;
+    margin-top: 14rem;
+
+    .luxure__circle {
+      position: absolute;
+      top: 0%;
+      width: clamp(320px, 32vw, 620px);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      z-index: 0;
+      opacity: 0.8;
+    
+     
+      &--left {
+        left: clamp(-260px, -16vw, -120px);
+        background: url("../../assets/img/Luxure/Luxure--03.webp") center;
+      }
+     
+      &--right {
+        right: clamp(-260px, -16vw, -120px);
+        background: url("../../assets/img/Luxure/Luxure--02.webp") center;
+      }
+    }
+     
+    .luxure__sensualite-inner {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 60%;
+      margin: 0 auto;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+      padding-top: 10rem;
+     
+      @media (min-width: 1024px) {
+        text-align: left;
+        max-width: 30%;
+      }
+    }
+    
+    .luxure__sensualite-text {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+    }
+
   }
  
   &--conclusion {
@@ -176,9 +231,9 @@
     .luxure__conclusion-text {
       @include font-serif();
       font-style: italic;
-      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-size: clamp(2.25rem, -0.0856rem + 9.5087vw, 6rem);
       line-height: 1.5;
-      max-width: 600px;
+      max-width: 60%;
       margin: 0;
       font-weight: 400;
  
@@ -248,39 +303,6 @@
   }
 }
 
-.luxure__circle {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: clamp(320px, 32vw, 620px);
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background-color: #6b5d63;
-  z-index: 0;
- 
-  &--left {
-    left: clamp(-260px, -16vw, -120px);
-    background: url("../../assets/img/Luxure/Luxure--03.webp") center;
-  }
- 
-  &--right {
-    right: clamp(-260px, -16vw, -120px);
-    background: url("../../assets/img/Luxure/Luxure--02.webp") center;
-  }
-}
- 
-.luxure__sensualite-inner {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  max-width: 620px;
-  margin: 0 auto;
-  text-align: center;
- 
-  @media (min-width: 1024px) {
-    text-align: left;
-  }
-}
  
 .luxure__section-title {
   @include font-serif();
@@ -294,12 +316,6 @@
   @media (min-width: 1024px) {
     display: block;
   }
-}
- 
-.luxure__sensualite-text {
-  display: flex;
-  flex-direction: column;
-  text-align: left;
 }
  
 .luxure__text--upper {

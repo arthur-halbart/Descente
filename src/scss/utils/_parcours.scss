@@ -4,7 +4,10 @@
 .parcours {
   position: relative;
   width: 100%;
-  overflow: hidden;
+
+  @media (min-width: 1024px) {
+    overflow: hidden;
+  }
 
   &__wrapper {
     display: block;
@@ -64,7 +67,8 @@
     background-color: var(--bg-color);
     color: var(--txt-main);
 
-    position: relative;
+    position: sticky;
+    top: 0;
     height: 100svh;
     width: 100%;
     box-sizing: border-box;
@@ -75,6 +79,7 @@
     overflow: hidden;
 
     @media (min-width: 1024px) {
+      position: relative;
       width: 100vw;
       padding: clamp(3rem, 5vw, 4rem);
       padding-top: 5.5rem;
@@ -287,4 +292,3 @@
     opacity: 1;
   }
 }
- 

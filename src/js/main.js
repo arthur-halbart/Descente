@@ -171,14 +171,14 @@ const ParesseCrossfade = () => {
  
   liberties.forEach((el) => {
     const toggle = () => {
-      const wasOpen = el.classList.contains("is-open");
+      const Open = el.classList.contains("is-open");
  
       liberties.forEach((other) => {
         other.classList.remove("is-open");
         other.setAttribute("aria-expanded", "false");
       });
  
-      if (!wasOpen) {
+      if (!Open) {
         el.classList.add("is-open");
         el.setAttribute("aria-expanded", "true");
       }
@@ -285,8 +285,6 @@ const SiteHeader = () => {
 };
  
 SiteHeader();
-
-
 HeroAnimation();
 IntroTransitions();
 ScrollHorizontale();

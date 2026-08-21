@@ -207,9 +207,9 @@ const ParesseCrossfade = () => {
       xPercent: -50,
       yPercent: -50,
       width: "30vw",
-      height: "40vh",
+      height: "30vh",
       opacity: 0,
-      borderRadius: "8px",
+      borderRadius: "50%",
     });
   
     const revealAnim = gsap.timeline({
@@ -230,7 +230,7 @@ const ParesseCrossfade = () => {
       })
       .to(panel, {
         width: "100vw",
-        height: "100vh",
+        height: "200vh",
         borderRadius: "0px",
         duration: 1.2,
         ease: "power2.inOut",

@@ -177,9 +177,10 @@
     margin-left: -5px;
     text-transform: uppercase;
     transition: color 0.4s ease 0.25s;
+
     &--titleGourmandise {
       @include font-display();
-      font-size: clamp(4.5625rem, 1.793rem + 12.6606vw, 13.1875rem);
+      font-size: clamp(4.0625rem, 0.8316rem + 13.1537vw, 9.25rem);
       line-height: 0.8;
       margin-left: -5px;
       text-transform: uppercase;

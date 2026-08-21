@@ -1,6 +1,6 @@
 @use '../utils/mixins' as *;
 @use 'variables' as *;
- 
+
 .page--colere {
   position: relative;
   background-color: $colere-bg;
@@ -13,7 +13,7 @@
   width: 95%;
   margin: 0 auto;
   padding: 0 1rem;
- 
+
   &--tension {
     width: 100vw;
     max-width: none;
@@ -23,25 +23,24 @@
     align-items: center;
     justify-content: center;
     overflow: hidden;
- 
+
     .colere__tension-media {
       width: 100%;
       aspect-ratio: 4 / 3;
-      max-height: 30.375rem ;
-
+      max-height: 30.375rem;
     }
- 
+
     .colere__tension-title {
       position: absolute;
+      z-index: 2;
       @include font-display();
       font-size: clamp(7.375rem, -1.4223rem + 35.8162vw, 21.5rem);
       color: $colere-cl;
       line-height: 0.9;
       margin: 0;
-      z-index: 2;
     }
   }
- 
+
   &--opera {
     display: flex;
     flex-direction: column;
@@ -49,7 +48,6 @@
     justify-content: center;
     margin-top: 16.625rem;
 
- 
     @media (min-width: 1024px) {
       flex-direction: row;
       gap: clamp(2rem, 5vw, 4rem);
@@ -59,34 +57,34 @@
       position: relative;
       width: 100%;
       padding-bottom: clamp(4rem, 6vw, 10rem);
-     
+
       @media (min-width: 1024px) {
         width: 42%;
+        flex-shrink: 0;
       }
     }
-     
+
     .colere__opera-media {
-     
       &--1 {
         position: relative;
+        z-index: 1;
         width: 70%;
         height: auto;
-        z-index: 1;
       }
-     
+
       &--2 {
         position: absolute;
+        z-index: 2;
         right: 0;
         bottom: 10%;
         width: 62%;
-        z-index: 2;
       }
     }
-     
+
     .colere__opera-text {
       display: flex;
       flex-direction: column;
-     
+
       @media (min-width: 1024px) {
         width: 40%;
         justify-content: center;
@@ -99,54 +97,51 @@
         font-weight: 400;
       }
 
-      span{
+      span {
         @include font-serif();
       }
     }
-    }
-     
+  }
+
   &--gallery {
     display: flex;
     flex-direction: column;
     gap: 1rem;
     margin-top: 10.5rem;
 
-     
-.colere__gallery-media {
-  border: 1px solid $colere-cl;
- 
-  &--big {
-    width: 100%;
-    aspect-ratio: 16 / 7;
-  }
- 
-  &--small {
-    width: 100%;
-    aspect-ratio: 4 / 3;
-  }
-}
- 
-.colere__gallery-row {
-  display: flex;
-  flex-direction: row;
-  gap: 1rem;
- 
-  @media (min-width: 768px) {
-    flex-direction: row;
- 
-    .colere__gallery-media--half {
-      width: 50%;
+    .colere__gallery-media {
+      border: 1px solid $colere-cl;
+
+      &--big {
+        width: 100%;
+        aspect-ratio: 16 / 7;
+      }
+
+      &--small {
+        width: 100%;
+        aspect-ratio: 4 / 3;
+      }
     }
-  }
-}
- 
-.colere__gallery-text {
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-  margin-top: 2rem;
-  max-width: 460px;
-}
+
+    .colere__gallery-row {
+      display: flex;
+      flex-direction: row;
+      gap: 1rem;
+
+      @media (min-width: 768px) {
+        .colere__gallery-media--half {
+          width: 50%;
+        }
+      }
+    }
+
+    .colere__gallery-text {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      margin-top: 2rem;
+      max-width: 50%;
+    }
   }
 
   &--climax {
@@ -158,29 +153,30 @@
     gap: 2rem;
     text-align: center;
     min-height: 100svh;
-    margin-top: 16.625rem;
+    margin-top: 9.1875rem;
     margin-bottom: 10.5rem;
 
-.colere__climax-title {
-  @include font-display();
-  color: $colere-cl;
-  font-size: clamp(7.375rem, 0.2904rem + 28.8431vw, 18.75rem);
-  line-height: 1;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
- 
-  @media (min-width: 1024px) {
-    flex-direction: row;
+    .colere__climax-title {
+      @include font-display();
+      color: $colere-cl;
+      font-size: clamp(7.375rem, 0.2904rem + 28.8431vw, 18.75rem);
+      line-height: 1;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      // text-align: center;
+
+      @media (min-width: 1024px) {
+        flex-direction: row;
+      }
+    }
+
+    .colere__climax-line {
+      display: block;
+    }
   }
-}
- 
-.colere__climax-line {
-  display: block;
-}
-  }
+
   &--resolution {
     position: absolute;
     top: 50%;
@@ -188,71 +184,60 @@
     width: 30vw;
     height: 40vh;
     max-width: none;
-    background-color: #fff; 
+    background-color: $colere-txt;
     color: $colere-cl;
-    border-radius: 8px;
+    border-radius: 50%;
     overflow: hidden;
-    padding: clamp(3rem, 10vw, 8rem) clamp(1.5rem, 6vw, 5rem);
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: clamp(2rem, 5vw, 4rem);
     will-change: transform, width, height;
-  }
-}
+    text-align: left;
+    margin-bottom: 30rem;
 
-.colere__opera-collage {
-  position: relative;
-  width: 100%;
-  padding-bottom: clamp(2rem, 6vw, 4rem);
- 
-  @media (min-width: 1024px) {
-    width: 42%;
-    flex-shrink: 0;
-  }
-}
+    .colere__resolution-title {
+      @include font-serif();
+      font-size: clamp(2.5625rem, 1.3169rem + 5.0713vw, 4.5625rem);
+      line-height: 1.4;
+      margin: 0;
+      font-weight: 400;
+      color: $colere-bg;
+      width: 70%;
 
+      span {
+        @include font-display();
+        font-weight: 700;
+      }
+    }
 
+    .colere__resolution-text {
+      @include font-body();
+      line-height: 1.4;
+      margin: 0;
+      color: $colere-bg;
+      opacity: 0.8;
 
-.colere__resolution-title {
-  @include font-serif();
-  font-size: clamp(1.5rem, 4vw, 2.6rem);
-  line-height: 1.4;
-  margin: 0;
-  font-weight: 400;
-  color: #111;
- 
-  strong {
-    @include font-display();
-    font-weight: 700;
-  }
-}
- 
-.colere__resolution-text {
-  @include font-body();
-  font-size: clamp(0.85rem, 1vw, 0.95rem);
-  line-height: 1.7;
-  margin: 0;
-  color: #111;
-  opacity: 0.8;
-  max-width: 480px;
-}
- 
-.colere__conclusion-text {
-  @include font-serif();
-  font-style: italic;
-  font-size: clamp(1.4rem, 3.5vw, 2.2rem);
-  line-height: 1.5;
-  margin: clamp(2rem, 5vw, 4rem) auto 0;
-  font-weight: 400;
-  text-align: center;
-  max-width: 620px;
- 
-  strong {
-    @include font-display();
-    font-weight: 700;
-    font-style: normal;
+    }
+
+    .colere__conclusion-text {
+      @include font-serif();
+      font-style: italic;
+      font-size: clamp(1.4rem, 3.5vw, 2.2rem);
+      line-height: 1.5;
+      margin: clamp(2rem, 5vw, 4rem) auto 0;
+      font-weight: 400;
+      text-align: center;
+      max-width: 620px;
+      color: $colere-bg;
+
+      span {
+        @include font-display();
+        font-weight: 700;
+        font-style: normal;
+      }
+    }
   }
 }
 
@@ -261,15 +246,9 @@
   line-height: 1.4;
   margin: 0;
   opacity: 0.85;
- 
-  &--centered {
-    text-align: center;
-    max-width: 420px;
-  }
 }
- 
 
-img{
+.page--colere img {
   height: 100%;
   width: 100%;
   object-fit: cover;

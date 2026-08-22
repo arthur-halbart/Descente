@@ -29,7 +29,7 @@
 .avarice__chapitre {
   position: relative;
   width: 100%;
-  padding: clamp(1.5rem, 5vw, 3rem);
+  padding: 1.4rem;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -162,7 +162,7 @@
   &--date {
     background-color: $avarice-bg;
     justify-content: space-between;
-    gap: clamp(3rem, 12vw, 6rem);
+    gap: 3rem;
     padding-top: 8.3125rem;
     padding-bottom: 15.3125rem;
 

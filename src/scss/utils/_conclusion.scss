@@ -2,7 +2,11 @@
 @use 'variables' as *;
 
 .conclusion {
-  padding: clamp(4rem, 12vw, 10rem) clamp(1.5rem, 5vw, 4rem) clamp(6rem, 14vw, 12rem);
+  padding: 3.9375rem 1.5rem 6rem;
+
+  @media (min-width: 768px) {
+    padding: 10rem 4rem 12rem;
+  }
 
   &__intro {
     @include font-serif();
@@ -10,11 +14,8 @@
     line-height: 1.3;
     font-weight: 400;
     max-width: 20ch;
-    margin-bottom: clamp(3rem, 9vw, 6rem);
+    margin-bottom: 5.6875rem;
 
-    em { 
-      font-style: italic; 
-    }
   }
 
   &__list {

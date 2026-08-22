@@ -157,9 +157,9 @@ liberties.forEach((el) => {
       })
       .to(panel, {
         width: "100vw",
-        height: "200vh",
+        height: "100vh",
         borderRadius: "0px",
-        duration: 1.2,
+        duration: 2,
         ease: "power2.inOut",
       });
   };
@@ -204,7 +204,9 @@ const Reveal = () => {
   const targets = gsap.utils.toArray(".reveal");
   if (targets.length === 0) return;
 
-  gsap.set(targets, { opacity: 1 });
+  gsap.set(targets, 
+    { opacity: 1 
+    });
 
   document.fonts.ready.then(() => {
     targets.forEach((el) => {

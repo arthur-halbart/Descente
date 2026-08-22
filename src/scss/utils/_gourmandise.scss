@@ -61,8 +61,12 @@
       line-height: 1.4;
       text-align: center;
       margin: 0;
-      max-width: 60%;
+      width: 80%;
       font-weight: 400;
+
+      @media (min-width: 1024px) {
+        width: 60%;
+      }
 
       span {
         @include font-display();

@@ -203,6 +203,34 @@
   }
 }
 
+.avarice__chapitre--conclusion {
+  width: 100vw;
+  margin-top: 0;
+  padding: 23.625rem 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.4rem;
+  text-align: center;
+
+  p {
+    @include font-serif();
+    font-size: clamp(2.25rem, -0.0856rem + 9.5087vw, 6rem);
+    line-height: 1.4;
+    margin: 0;
+    font-weight: 400;
+    color: $envie-bg;
+    max-width: 70%;
+
+    span {
+      @include font-display();
+      font-weight: 700;
+      color: $avarice-cl;
+    }
+  }
+}
+
 
 .avarice__media {
   width: 100%;

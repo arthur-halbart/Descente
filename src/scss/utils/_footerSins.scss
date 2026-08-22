@@ -1,0 +1,42 @@
+@use '../utils/mixins' as *;
+@use 'variables' as *;
+
+.chapter-next {
+  width: 95%;
+  margin: 2.4rem auto 0;
+
+  &__link {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+    color: inherit;
+    text-decoration: none;
+    padding: 3.5rem 0;
+    border-top: 1px solid currentColor;
+
+    @media (min-width: 1024px) {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  &__label {
+    @include font-body();
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    opacity: 0.7;
+  }
+
+  &__sin {
+    @include font-display();
+    font-size: clamp(4.0625rem, 0.8316rem + 13.1537vw, 9.25rem);
+    text-transform: uppercase;
+    margin: 0;
+
+    @media (min-width: 1024px) {
+      text-align: right;
+    }
+  }
+}

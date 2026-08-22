@@ -215,6 +215,15 @@
     text-transform: uppercase;
     font-weight: 600;
     letter-spacing: 0.05em;
+   
+  
+    &--scroll::after {
+      content: '—';
+      display: inline-block;
+      margin-left: 0.4rem;
+      transform-origin: left center;
+      animation: scroll-stretch 1.8s ease-in-out infinite;
+    }
   }
 
   &__bands {
@@ -263,24 +272,6 @@
     .parcours__card-footer {
       color: var(--bg-color);
     }
-  }
-}
-
-.parcours__cta {
-  @include font-body();
-  color: inherit;
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  font-weight: 600;
-  letter-spacing: 0.05em;
- 
-
-  &--scroll::after {
-    content: '—';
-    display: inline-block;
-    margin-left: 0.4rem;
-    transform-origin: left center;
-    animation: scroll-stretch 1.8s ease-in-out infinite;
   }
 }
  

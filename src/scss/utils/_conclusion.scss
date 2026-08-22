@@ -1,0 +1,110 @@
+@use '../utils/mixins' as *;
+@use 'variables' as *;
+
+.conclusion {
+  padding: clamp(4rem, 12vw, 10rem) clamp(1.5rem, 5vw, 4rem) clamp(6rem, 14vw, 12rem);
+
+  &__intro {
+    @include font-serif();
+    font-size: clamp(1.6rem, 4.5vw, 3rem);
+    line-height: 1.3;
+    font-weight: 400;
+    max-width: 20ch;
+    margin-bottom: clamp(3rem, 9vw, 6rem);
+
+    em { 
+      font-style: italic; 
+    }
+  }
+
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__item {
+    border-top: 1px solid rgba(26, 26, 26, 0.18);
+
+    &:last-child {
+      border-bottom: 1px solid rgba(26, 26, 26, 0.18);
+    }
+
+    &--orgueil      { --sin: #D7AB56; --ink: #252525; }
+    &--paresse      { --sin: #479528; --ink: #F7F7F2; }
+    &--luxure       { --sin: #B46E8B; --ink: #2A1A21; }
+    &--envie        { --sin: #7BA4DB; --ink: #1C2636; }
+    &--colere       { --sin: #D60E10; --ink: #F7F0F3; }
+    &--avarice      { --sin: #493B63; --ink: #FDFFFA; }
+    &--gourmandise  { --sin: #DABD8F; --ink: #3A2E24; }
+  }
+
+  &__link {
+    position: relative;
+    display: grid;
+    grid-template-columns: 3.5rem 1fr;
+    align-items: center;
+    gap: clamp(0.75rem, 3vw, 2rem);
+    padding: clamp(0.9rem, 2.5vw, 1.4rem) 0;
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.4s ease;
+
+    @media (min-width: 700px) {
+      grid-template-columns: 6rem 1fr 1fr;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background-color: var(--sin);
+      transform: scaleX(0);
+      transform-origin: left center;
+      transition: transform 0.55s cubic-bezier(0.76, 0, 0.24, 1);
+    }
+
+    > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    &:hover,
+    &:focus-visible {
+      color: var(--ink);
+
+      &::before { transform: scaleX(1); }
+
+      .conclusion__num { color: var(--ink); }
+    }
+  }
+
+  &__num {
+    @include font-serif();
+    font-style: italic;
+    font-size: clamp(1.6rem, 5vw, 2.6rem);
+    line-height: 1;
+    color: var(--sin);
+    transition: color 0.4s ease;
+  }
+
+  &__sin {
+    @include font-display();
+    font-size: clamp(1.5rem, 6vw, 3rem);
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  &__vertu {
+    @include font-serif();
+    font-style: italic;
+    font-size: clamp(0.85rem, 2vw, 1.25rem);
+    opacity: 0.7;
+    display: none;
+
+    @media (min-width: 700px) { 
+      display: block; 
+    }
+  }
+}

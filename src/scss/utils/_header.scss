@@ -15,12 +15,29 @@
   padding: 2rem;
   mix-blend-mode: difference;
 
-
   &__meta {
     @include font-body();
     font-size: 1rem;
     text-transform: uppercase;
     color: $home-bg;
+  }
+
+  &__logo {
+    display: flex;
+    color: $home-bg;
+    width: 22px;
+    transition: opacity 0.3s ease;
+
+    svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    &:hover,
+    &:focus {
+      opacity: 0.6;
+    }
   }
 }
 
@@ -34,22 +51,22 @@
   gap: 7px;
 
   span {
-
     width: 40px;
     height: 1px;
     background: $home-bg;
     transition: transform 0.4s ease;
   }
 
-  span:nth-child(2){
+  span:nth-child(2) {
     width: 50px;
   }
 
-  &.open span:nth-child(1) { 
-    transform: translateY(4px) rotate(45deg); 
+  &.open span:nth-child(1) {
+    transform: translateY(4px) rotate(45deg);
   }
-  &.open span:nth-child(2) { 
-    transform: translateY(-4px) rotate(-45deg); 
+
+  &.open span:nth-child(2) {
+    transform: translateY(-4px) rotate(-45deg);
     width: 40px;
   }
 }
@@ -90,8 +107,8 @@
     text-decoration: none;
     transition: color 0.3s ease;
 
-    &:hover { 
-      color: $home-cl; 
+    &:hover {
+      color: $home-cl;
     }
   }
 }

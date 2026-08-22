@@ -38,3 +38,11 @@ $gourmandise-txt:  #F8F4F0;
 $gourmandise-cl: #DABD8F;
 
 
+.reveal-lines {
+    opacity: 0;
+    will-change: transform;
+  
+    * {
+      will-change: transform;
+    }
+  }

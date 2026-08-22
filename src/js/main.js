@@ -1,10 +1,22 @@
 import "../scss/main.scss";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { SplitText } from "gsap/SplitText";
+gsap.registerPlugin(ScrollTrigger, SplitText);
 
-gsap.registerPlugin(ScrollTrigger);
+///////////////////////////////////////////////////Menu Burger
+  
+const SiteHeader = () => {
+  const btn = document.querySelector(".nav-toggle");
+  const overlay = document.querySelector(".nav-overlay");
 
-////////////////////////////Animation principal inspiration -> https://gsap.com/ 
+  btn.addEventListener("click", () => {
+    btn.classList.toggle("open");
+    overlay.classList.toggle("open");
+  });
+};
+
+////////////////////////////Animation principal inspiration -> https://gsap.com/ | https://gsap.com/docs/v3/
 
 //////////////ANIMATION HERO
 
@@ -14,7 +26,7 @@ const HeroAnimation = () => {
   const sloganLines = gsap.utils.toArray(".slogan__line");
   const heroElements = gsap.utils.toArray([".hero__graphic", ".hero__logo", ".hero__footer"]);
 
-  if (!hero || !introCard || sloganLines.length === 0 || heroElements.length === 0) {
+  if (!hero || !introCard || heroElements.length === 0) {
     return;
   }
 
@@ -26,7 +38,7 @@ const HeroAnimation = () => {
     opacity: 0, 
     borderRadius: "8px" 
   });
-  gsap.set(sloganLines, { yPercent: 110 });
+
 
   const introAnim = gsap.timeline({
     scrollTrigger: {
@@ -44,26 +56,18 @@ const HeroAnimation = () => {
       opacity: 0, 
       stagger: 0.05, 
       duration: 0.8, 
-      ease: "power2.inOut" 
     })
     .to(introCard, { 
       opacity: 1, 
       duration: 0.3, 
-      ease: "power1.inOut" 
     }, ">")
+
     .to(introCard, { 
       width: "100vw", 
       height: "100vh", 
       borderRadius: "0px",
        duration: 1.2, 
-       ease: "power2.inOut" 
       })
-    .to(sloganLines, { 
-      yPercent: 0, 
-      duration: 0.8, 
-      stagger: 0.1, 
-      ease: "power4.out" 
-    });
 };
 
 
@@ -167,31 +171,19 @@ const ParesseCrossfade = () => {
 
 //////////////////////////////////////////////////////////////////////////Envie animation page
 
-  const liberties = gsap.utils.toArray(".envie__liberty");
- 
-  liberties.forEach((el) => {
-    const toggle = () => {
-      const Open = el.classList.contains("is-open");
- 
-      liberties.forEach((other) => {
-        other.classList.remove("is-open");
-        other.setAttribute("aria-expanded", "false");
-      });
- 
-      if (!Open) {
-        el.classList.add("is-open");
-        el.setAttribute("aria-expanded", "true");
-      }
-    };
- 
-    el.addEventListener("click", toggle);
-    el.addEventListener("keydown", (e) => {
-      if (e.key === "Enter" || e.key === " ") {
-        e.preventDefault();
-        toggle();
-      }
-    });
+const liberties = gsap.utils.toArray(".envie__liberty");
+
+liberties.forEach((el) => {
+  el.addEventListener("click", () => {
+    const isOpen = el.classList.contains("is-open");
+
+    liberties.forEach((other) => other.classList.remove("is-open"));
+
+    if (!isOpen) {
+      el.classList.add("is-open");
+    }
   });
+});
 
   //////////////////////Animation Colere Page 
 
@@ -270,19 +262,40 @@ const GourmandiseGallery = () => {
     );
   });
 };
-  
-const SiteHeader = () => {
-  const btn = document.querySelector(".nav-toggle");
-  const overlay = document.querySelector(".nav-overlay");
- 
-  if (!btn || !overlay) return;
- 
-  btn.addEventListener("click", () => {
-    const isOpen = btn.classList.toggle("open");
-    overlay.classList.toggle("open");
-    btn.setAttribute("aria-expanded", isOpen);
+
+///////////////////////////////////////////////////Animation de textes GSAP  https://codepen.io/GreenSock/pen/GggpRoB
+
+const SplitLinesReveal = () => {
+  const targets = gsap.utils.toArray(".reveal-lines");
+  if (targets.length === 0) return;
+
+  gsap.set(targets, { opacity: 1 });
+
+  document.fonts.ready.then(() => {
+    targets.forEach((el) => {
+      SplitText.create(el, {
+        type: "words,lines",
+        mask: "lines",
+        linesClass: "line",
+        autoSplit: true,
+
+        onSplit: (instance) => {
+          return gsap.from(instance.lines, {
+            yPercent: 120,
+            stagger: 0.1,
+            scrollTrigger: {
+              trigger: el,
+              scrub: true,
+              start: "clamp(top center)",
+              end: "clamp(bottom center)",
+            },
+          });
+        },
+      });
+    });
   });
 };
+
  
 SiteHeader();
 HeroAnimation();
@@ -291,5 +304,6 @@ ScrollHorizontale();
 ParesseCrossfade();
 ColereResolutionReveal();
 GourmandiseGallery();
+SplitLinesReveal();
 
 //////////////////////////////////

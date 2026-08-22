@@ -115,9 +115,9 @@
     }
   }
  
-  &--traits {
+  &--charac {
     margin:  auto;
-    width: 100%;
+    width: 90%;
     text-align: center;
     display: flex;
     align-items: center;
@@ -128,7 +128,7 @@
       width: 60%;
     }
  
-    .luxure__traits-title {
+    .luxure__charac-title {
       @include font-serif();
       font-size: clamp(1.75rem, 0.699rem + 4.2789vw, 3.4375rem);
       font-weight: 700;
@@ -141,7 +141,7 @@
       }
     }
  
-    .luxure__traits-list {
+    .luxure__charac-list {
       list-style: none;
       display: flex;
       flex-direction: column;
@@ -149,7 +149,7 @@
       padding: 0;
     }
  
-    .luxure__traits-item {
+    .luxure__charac-item {
       @include font-serif();
       font-style: italic;
       font-size: clamp(1.75rem, 0.699rem + 4.2789vw, 3.4375rem);

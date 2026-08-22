@@ -71,25 +71,6 @@ const HeroAnimation = () => {
 };
 
 
-const IntroTransitions = () => {
-  const hero = document.querySelector(".hero");
-  const preface = document.querySelector(".preface");
-
-  if (!hero || !preface) {
-    return;
-  }
-
-  gsap.to(hero, {
-    yPercent: 150, 
-    scrollTrigger: {
-      trigger: preface,
-      start: "top bottom", 
-      end: "top top",      
-      scrub: true          
-    }
-  });
-};
-
 ////////////////////SCROLL HORIZONTALE
 const ScrollHorizontale = () => {
 const section = document.querySelector(".parcours, .avarice");
@@ -253,7 +234,6 @@ const SplitLinesReveal = () => {
  
 SiteHeader();
 HeroAnimation();
-IntroTransitions();
 ScrollHorizontale();
 ColereResolutionReveal();
 GourmandiseGallery();

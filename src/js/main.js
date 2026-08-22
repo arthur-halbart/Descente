@@ -200,8 +200,8 @@ const GourmandiseGallery = () => {
 
 ///////////////////////////////////////////////////Animation de textes GSAP  https://codepen.io/GreenSock/pen/GggpRoB
 
-const SplitLinesReveal = () => {
-  const targets = gsap.utils.toArray(".reveal-lines");
+const Reveal = () => {
+  const targets = gsap.utils.toArray(".reveal");
   if (targets.length === 0) return;
 
   gsap.set(targets, { opacity: 1 });
@@ -237,6 +237,6 @@ HeroAnimation();
 ScrollHorizontale();
 ColereResolutionReveal();
 GourmandiseGallery();
-SplitLinesReveal();
+Reveal();
 
 //////////////////////////////////

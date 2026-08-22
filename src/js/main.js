@@ -123,52 +123,6 @@ if (scrollDistance <= 0) return;
   });
 };
 
-///////////////////////ANIMATION PAGE PARESSE | GSAP -> codePen : "https://codepen.io/GreenSock/pen/rNOebyo"
-
-const ParesseCrossfade = () => {
-  const container = document.querySelector(".page--paresse");
-  if (!container) return;
-
-  const sections = gsap.utils.toArray(".page--paresse .slide");
-  if (sections.length === 0) return;
-
-  let currentSection = sections[0];
-
-  gsap.defaults({ overwrite: "auto", duration: 0.6 });
-
-  gsap.set("body", { height: sections.length * window.innerHeight });
-
-  sections.forEach((section, i) => {
-    ScrollTrigger.create({
-      start: () => (i - 0.5) * window.innerHeight,
-      end: () => (i + 0.5) * window.innerHeight,
-      onToggle: self => self.isActive && setSection(section)
-    });
-  });
-
-  function setSection(newSection) {
-    if (newSection !== currentSection) {
-      const oldContent = currentSection.querySelector(".slide__content");
-      const newContent = newSection.querySelector(".slide__content");
-
-      gsap.to(oldContent, { y: -30, autoAlpha: 0, duration: 0.5, ease: "power2.in" });
-      gsap.to(currentSection, { autoAlpha: 0, duration: 0.4 });
-
-      gsap.set(newSection, { autoAlpha: 1 });
-      gsap.fromTo(newContent,
-        { y: 30, autoAlpha: 0 },
-        { y: 0, autoAlpha: 1, duration: 0.7, delay: 0.2, ease: "power3.out" }
-      );
-
-      currentSection = newSection;
-    }
-  }
-
-  gsap.set(sections.slice(1), { autoAlpha: 0 });
-
-  document.querySelectorAll(".page--paresse .slide").length
-};
-
 //////////////////////////////////////////////////////////////////////////Envie animation page
 
 const liberties = gsap.utils.toArray(".envie__liberty");
@@ -301,7 +255,6 @@ SiteHeader();
 HeroAnimation();
 IntroTransitions();
 ScrollHorizontale();
-ParesseCrossfade();
 ColereResolutionReveal();
 GourmandiseGallery();
 SplitLinesReveal();

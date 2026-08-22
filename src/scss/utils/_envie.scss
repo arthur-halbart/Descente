@@ -26,21 +26,20 @@
       justify-content: space-between;
       align-items: baseline;
       gap: 1rem;
-      border-top: 1px solid rgba($envie-txt, 0.15);
+      border-top: 0.5px solid $envie-txt;
       padding-top: 1rem;
 
       &--bottom {
         border-top: none;
-        border-bottom: 1px solid rgba($envie-txt, 0.15);
+        border-bottom: 0.5px solid $envie-txt;
         padding-top: 0;
         padding-bottom: 1rem;
       }
 
       .envie__meta {
         @include font-body();
-        font-size: clamp(0.65rem, 0.8vw, 0.75rem);
         text-transform: uppercase;
-        letter-spacing: 0.08em;
+        font-size: 0.875rem;
         opacity: 0.65;
 
         strong {
@@ -56,8 +55,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      min-height: clamp(360px, 55vh, 620px);
-      padding: clamp(2rem, 5vw, 4rem) 0;
+      min-height: 620px;
 
       .envie__column-svg {
         position: absolute;
@@ -86,7 +84,7 @@
 
         .envie__column-liberty {
           @include font-display();
-          font-size: clamp(3rem, 11vw, 7rem);
+          font-size: clamp(2.25rem, 0.0701rem + 8.8748vw, 5.75rem);
           color: $envie-txt;
         }
       }
@@ -96,7 +94,6 @@
         z-index: 2;
         @include font-body();
         opacity: 0.7;
-        margin: 1rem 0 0;
         text-align: center;
         max-width: 380px;
       }
@@ -107,17 +104,17 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: clamp(2rem, 5vw, 3rem);
-    margin: clamp(4rem, 12vw, 10rem) auto;
-    max-width: 680px;
+    max-width: 60%;
+    margin-top: 8.75rem;
 
     .envie__manifesto-title {
       @include font-serif();
-      font-size: clamp(1.8rem, 5vw, 3rem);
-      line-height: 1.3;
+      font-size: clamp(2.5625rem, -0.3959rem + 12.0444vw, 7.3125rem);
+      line-height: 1;
       text-align: center;
       margin: 0;
       font-weight: 400;
+      margin-bottom: 2.75rem;
 
       span {
         font-style: normal;
@@ -125,39 +122,25 @@
       }
     }
 
-    .envie__quote {
-      @include font-serif();
-      font-size: clamp(1.1rem, 2.4vw, 1.5rem);
-      line-height: 1.5;
-      text-align: center;
-      margin: 0;
-      padding: clamp(1.5rem, 4vw, 2.5rem) 0;
-      border-top: 1px solid rgba($envie-txt, 0.15);
-      border-bottom: 1px solid rgba($envie-txt, 0.15);
-      font-weight: 400;
-      max-width: 560px;
-    }
   }
 
   &--liberties {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: clamp(2.5rem, 6vw, 4rem);
-    margin: clamp(4rem, 12vw, 10rem) auto;
+    margin-top: 18.375rem;
     max-width: 1180px;
 
     .envie__liberties-head {
+      @include font-body();
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 0.75rem;
-      text-align: center;
-      max-width: 560px;
+      gap: 1rem;
 
       .envie__liberties-title {
         @include font-serif();
-        font-size: clamp(1.6rem, 4vw, 2.4rem);
+        font-size: clamp(1.75rem, 0.3097rem + 5.8637vw, 4.0625rem);
         line-height: 1.2;
         margin: 0;
         font-weight: 400;
@@ -171,7 +154,7 @@
       .envie__instruction {
         @include font-body();
         opacity: 0.6;
-        margin: 0;
+        margin-bottom: 1.5rem;
       }
     }
 
@@ -183,62 +166,49 @@
 
       @media (min-width: 800px) {
         flex-direction: row;
-        height: clamp(380px, 48vh, 460px);
+        height: 460px;
       }
 
       .envie__liberty {
         position: relative;
         flex: 1;
-        min-height: 110px;
+        min-height: 7rem;
         border: 1px solid $envie-txt;
         background-color: $envie-txt;
         cursor: pointer;
         overflow: hidden;
-        padding: clamp(1.1rem, 2vw, 1.5rem);
+        padding: 1.5rem;
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
-        transition:
-          flex 0.7s cubic-bezier(0.4, 0, 0.2, 1),
-          background-color 0.5s ease,
-          border-color 0.5s ease,
-          color 0.5s ease;
+        transition: flex 0.7s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.5s ease, border-color 0.5s ease, color 0.5s ease;
 
         &:hover {
           background-color: rgba($envie-txt, 0.07);
         }
 
-        &:focus-visible {
+        &:focus {
           outline: 2px solid $envie-cl;
-          outline-offset: 3px;
         }
 
         &.is-open {
-          flex: 3.2;
+          flex: 3;
           background-color: $envie-cl;
           border-color: $envie-cl;
           color: $envie-bg;
 
           .envie__liberty-body {
             max-height: 280px;
-            opacity: 0.92;
+            opacity: 1;
             margin-top: 1rem;
           }
         }
 
-        .envie__liberty-num {
-          @include font-display();
-          font-size: clamp(0.75rem, 0.9vw, 0.85rem);
-          opacity: 0.5;
-          margin-bottom: auto;
-        }
-
         .envie__liberty-title {
           @include font-serif();
-          font-size: clamp(1rem, 1.5vw, 1.2rem);
+          font-size: 1.3125rem;
           line-height: 1.25;
           font-weight: 400;
-          margin: 0;
         }
 
         .envie__liberty-body {
@@ -246,12 +216,8 @@
           opacity: 0;
           overflow: hidden;
           @include font-body();
-          font-size: clamp(0.78rem, 0.9vw, 0.85rem);
-          line-height: 1.7;
-          transition:
-            max-height 0.6s ease,
-            opacity 0.4s ease,
-            margin-top 0.6s ease;
+          line-height: 1.4;
+          transition: max-height 0.6s ease, opacity 0.4s ease, margin-top 0.6s ease;
         }
       }
     }
@@ -260,10 +226,7 @@
   &--memory {
     width: 100vw;
     max-width: none;
-    margin-left: calc(-50vw + 50%);
-    margin-right: calc(-50vw + 50%);
-    margin-top: clamp(4rem, 12vw, 10rem);
-    padding: clamp(5rem, 14vw, 12rem) clamp(1.5rem, 6vw, 5rem);
+    padding-top: 23.625rem;
     box-sizing: border-box;
     background: linear-gradient(to bottom, $envie-bg 0%, rgba($envie-cl, 0.35) 45%, $envie-cl 100%);
     display: flex;
@@ -285,24 +248,25 @@
   &--conclusion {
     width: 100vw;
     margin-top: 0;
+    padding: 23.625rem 0;
     box-sizing: border-box;
     background-color: $envie-cl;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1.5rem;
+    gap: 1.4rem;
     text-align: center;
 
     .envie__conclusion-text {
       @include font-serif();
-      font-size: clamp(1.5rem, 4vw, 2.4rem);
+      font-size: clamp(2.25rem, -0.0856rem + 9.5087vw, 6rem);
       line-height: 1.4;
       margin: 0;
       font-weight: 400;
       color: $envie-bg;
-      max-width: 620px;
+      max-width: 70%;
 
-      strong {
+      span {
         @include font-display();
         font-weight: 700;
       }
@@ -310,26 +274,23 @@
 
     .envie__conclusion-sub {
       @include font-body();
-      font-size: clamp(0.85rem, 1vw, 0.95rem);
-      line-height: 1.6;
+      line-height: 1.4;
       margin: 0;
       color: $envie-bg;
-      opacity: 0.75;
-      max-width: 460px;
+      max-width: 28.4375rem;
     }
   }
 }
 
 .envie__text {
   @include font-body();
-  font-size: clamp(0.85rem, 1vw, 0.95rem);
   line-height: 1.75;
   margin: 0;
   opacity: 0.85;
 
   &--centered {
-    text-align: center;
-    max-width: 560px;
+    max-width: 35rem;
+    margin-top: 2.8rem;
   }
 
   &--small {
@@ -341,7 +302,7 @@
     opacity: 0.85;
   }
 
-  strong {
+  span {
     font-weight: 700;
     opacity: 1;
   }

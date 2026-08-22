@@ -4,19 +4,24 @@
 .page--paresse {
   background-color: $paresse-bg;
   color: $paresse-txt;
+  overflow-y: scroll;
+  //// MDN https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Scroll_snap
+  height: 100vh;
 }
 
 .slide {
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   padding: clamp(1.5rem, 4vw, 2.5rem);
   box-sizing: border-box;
   background-color: $paresse-bg;
   display: flex;
   flex-direction: column;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
 }
 
 .slide__content {
